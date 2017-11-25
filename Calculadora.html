@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+            text-align: center;}
+
+input[type="Text"] {text-align: right;}
+           
+button {width: 50px}
+
+.espaco {padding-bottom: 5px;}
+
+button[id="igual"] {background-color: lightgray;
+               }
+                
+.num {background-color: white;
+      color: black;}
+
+.operation {background-color: lightgray;
+           }
+</style>
+<script>
+
+ function botao(n) {
+  var tela = document.getElementById("tela");
+  var number = document.getElementById("number");
+    if (op.value = mais) {
+    number.value += n;}
+
+   tela.value += n;
+   number.value += n;
+   }
+ 
+ function apagar() {
+ var tela = document.getElementById("tela");
+ var number = document.getElementById("number");
+ tela.value = "";
+ number.value = "0";
+ }
+ 
+ function igual() {
+ var resultado = 0;
+ resultado = document.getElementById("tela").value;
+ document.getElementById("tela").value= "";
+ document.getElementById("tela").value= eval(resultado);
+ 
+ }
+ 
+</script>
+</head>
+<body>
+
+<div class="container">
+<input type="text" id="tela" value=" " size="25" disabled>
+<br>
+<div class="espaco">
+<label for="1"><button id="1" onclick="botao(1);" class="num" value="1">1</button></label>
+<label for="2"><button id="2" onclick="botao(2);" class="num" value="2">2</button></label>
+<label for="3"><button id="3" onclick="botao(3);" class="num" value="3">3</button></label>
+<label for="mais"><button id="mais" onclick="botao('+');" class="operation" value="+">+</button></label>
+<br>
+<label for="4"><button id="4" onclick="botao(4);" class="num" value="4">4</button></label>
+<label for="5"><button id="5" onclick="botao(5);" class="num" value="5">5</button></label>
+<label for="6"><button id="6" onclick="botao(6);" class="num" value="6">6</button></label>
+<label for="menos"><button id="menos" onclick="botao('-');" class="operation" value="-">-</button></label>
+<br>
+<label for="7"><button id="7" onclick="botao(7);" class="num" value="7">7</button></label>
+<label for="8"><button id="8" onclick="botao(8);" class="num" value="8">8</button></label>
+<label for="9"><button id="9" onclick="botao(9);" class="num" value="9">9</button></label>
+<label for="dividir"><button id="dividir" onclick="botao('/');" class="operation" value="/">/</button></label>
+<br>
+<label for="c"><button id="c" onclick="apagar();" class="operation" value="c">c</button></label>
+<label for="0"><button id="0" onclick="botao(0);" class="num" value="0">0</button></label>
+<label for="igual"><button id="igual" onclick="igual()" value="=">=</button></label>
+<label for="vezes"><button id="vezes" class="operation" onclick="botao('*');"  value="">*</button></label>
+<br>
+</div>
+</div>
+
+<label id="number" value="0"><label id="op" value=""></label></label>
+
+</body>
+</html>
