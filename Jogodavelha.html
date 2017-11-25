@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jogo das Veia</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lora');
+.letras{
+width: 100px;
+height: 100px;
+background: white;
+font-size: 80px;
+cursor: pointer;
+font-family: 'Fredoka One';
+
+}
+.contorno{
+background: black;
+}
+
+</style>
+<script language="JavaScript" type="text/javascript">
+
+letra = "X";
+
+function joga(id){
+		
+        if (document.getElementById(id).innerHTML == ""){
+        
+        document.getElementById(id).innerHTML = letra;
+        if (letra == "X"){
+            letra = "O";
+        }
+        else {
+            letra = "X";
+            }
+        }
+        fim();
+        }
+ 
+
+
+function fim(){
+
+   a1 = document.getElementById('a1').innerHTML;
+   a2 = document.getElementById('a2').innerHTML;
+   a3 = document.getElementById('a3').innerHTML;
+   b1 = document.getElementById('b1').innerHTML;
+   b2 = document.getElementById('b2').innerHTML;
+   b3 = document.getElementById('b3').innerHTML;
+   c1 = document.getElementById('c1').innerHTML;
+   c2 = document.getElementById('c2').innerHTML;
+   c3 = document.getElementById('c3').innerHTML;
+   
+   if (((a1 == "X") && (a2 == "X") && (a3 == "X")) || 
+      ((b1 == "X") && (b2 == "X") && (b3 == "X")) ||
+      ((c1 == "X") && (c2 == "X") && (c3 == "X")) ||
+      ((a1 == "X") && (b2 == "X") && (c3 == "X")) || 
+      ((a3 == "X") && (b2 == "X") && (c1 == "X")) ||
+      ((a1 == "X") && (b1 == "X") && (c1 == "X")) || 
+      ((a2 == "X") && (b2 == "X") && (c2 == "X")) ||
+      ((a3 == "X") && (b2 == "X") && (c3 == "X")))
+      {
+       alert('Player 1 venceu');
+       document.getElementById('telaX').value = parseInt(document.getElementById('telaX').value)+1;
+       reset();
+   }
+   
+   if (((a1 == "O") && (a2 == "O") && (a3 == "O")) || 
+    ((b1 == "O") && (b2 == "O") && (b3 == "O")) || 
+    ((c1 == "O") && (c2 == "O") && (c3 == "O")) || 
+    ((a1 == "O") && (b2 == "O") && (c3 == "O")) || 
+    ((a3 == "O") && (b2 == "O") && (c1 == "O")) || 
+    ((a1 == "O") && (b1 == "O") && (c1 == "O")) || 
+    ((a2 == "O") && (b2 == "O") && (c2 == "O")) ||
+    ((a3 == "O") && (b2 == "O") && (c3 == "O")))
+    {
+       alert('Player 2 venceu');
+       document.getElementById('telaO').value = parseInt(document.getElementById('telaO').value)+1;
+      reset();
+   }
+  
+   if (((a1 == "O")||(a1 == "X"))&&
+   ((a2 == "O")||(a2 == "X"))&&
+   ((a3 == "O")||(a3 == "X"))&&
+   ((b1 == "O")||(b1== "X"))&&
+   ((b2 == "O")||(b2 == "X"))&&
+   ((b3 == "O")||(b3 == "X"))&&
+   ((c1 == "O")||(c1 == "X"))&&
+   ((c2 == "O")||(c2 == "X"))&&
+   ((c3 == "O")||(c3 == "X"))) {
+     
+     alert('Deu velha');
+ 
+  reset();}
+   
+}
+
+function reset() {
+  			document.getElementById('a1').innerHTML="";
+            document.getElementById('a2').innerHTML="";
+            document.getElementById('a3').innerHTML="";
+            document.getElementById('b1').innerHTML="";
+            document.getElementById('b2').innerHTML="";
+            document.getElementById('b3').innerHTML="";
+            document.getElementById('c1').innerHTML="";
+            document.getElementById('c2').innerHTML="";
+            document.getElementById('c3').innerHTML="";
+  }
+
+
+
+
+</script>
+
+</head>
+<body>
+<table class="contorno">
+
+<tr>
+<td align="center" valign="middle" id="a1" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="a2" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="a3" class="letras" onclick="joga(this.id);fim();"></td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" id="b1" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="b2" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="b3" class="letras" onclick="joga(this.id);fim();"></td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" id="c1" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="c2" class="letras" onclick="joga(this.id);fim();"></td>
+<td align="center" valign="middle" id="c3" class="letras" onclick="joga(this.id);fim();"></td>
+</tr>
+
+</table>
+
+<input type="text" id="telaX" value=0 size="1" disabled> 
+<label>X</label>
+
+<input type="button" value="Reset"  onclick="reset();p/reset()"> 
+
+<label>O</label>
+<input type="text" id="telaO" value=0 size="1" disabled>
+
+</body>
+</html>
