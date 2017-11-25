@@ -107,8 +107,10 @@ function reset() {
             document.getElementById('c3').innerHTML="";
   }
 
-
-
+function resetPlacar() {
+			 document.getElementById('telaO').value = "0"
+             document.getElementById('telaX').value = "0"
+}
 
 </script>
 
@@ -139,8 +141,8 @@ function reset() {
 <input type="text" id="telaX" value=0 size="1" disabled> 
 <label>X</label>
 
-<input type="button" value="Reset"  onclick="reset();p/reset()"> 
-
+<input type="button" value="Reset Game"  onclick="reset()"> 
+<input type="button" value="Reset Placar"  onclick="resetPlacar()"> 
 <label>O</label>
 <input type="text" id="telaO" value=0 size="1" disabled>
 
