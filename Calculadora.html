@@ -1,151 +1,84 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Jogo das Veia</title>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Lora');
-.letras{
-width: 100px;
-height: 100px;
-background: white;
-font-size: 80px;
-cursor: pointer;
-font-family: 'Fredoka One';
+.container {
+            text-align: center;}
 
-}
-.contorno{
-background: black;
-}
+input[type="Text"] {text-align: right;}
+           
+button {width: 50px}
 
+.espaco {padding-bottom: 5px;}
+
+button[id="igual"] {background-color: lightgray;
+               }
+                
+.num {background-color: white;
+      color: black;}
+
+.operation {background-color: lightgray;
+           }
 </style>
-<script language="JavaScript" type="text/javascript">
+<script>
 
-letra = "X";
+ function botao(n) {
+  var tela = document.getElementById("tela");
+  var number = document.getElementById("number");
+    if (op.value = mais) {
+    number.value += n;}
 
-function joga(id){
-		
-        if (document.getElementById(id).innerHTML == ""){
-        
-        document.getElementById(id).innerHTML = letra;
-        if (letra == "X"){
-            letra = "O";
-        }
-        else {
-            letra = "X";
-            }
-        }
-        fim();
-        }
- 
-
-
-function fim(){
-
-   a1 = document.getElementById('a1').innerHTML;
-   a2 = document.getElementById('a2').innerHTML;
-   a3 = document.getElementById('a3').innerHTML;
-   b1 = document.getElementById('b1').innerHTML;
-   b2 = document.getElementById('b2').innerHTML;
-   b3 = document.getElementById('b3').innerHTML;
-   c1 = document.getElementById('c1').innerHTML;
-   c2 = document.getElementById('c2').innerHTML;
-   c3 = document.getElementById('c3').innerHTML;
-   
-   if (((a1 == "X") && (a2 == "X") && (a3 == "X")) || 
-      ((b1 == "X") && (b2 == "X") && (b3 == "X")) ||
-      ((c1 == "X") && (c2 == "X") && (c3 == "X")) ||
-      ((a1 == "X") && (b2 == "X") && (c3 == "X")) || 
-      ((a3 == "X") && (b2 == "X") && (c1 == "X")) ||
-      ((a1 == "X") && (b1 == "X") && (c1 == "X")) || 
-      ((a2 == "X") && (b2 == "X") && (c2 == "X")) ||
-      ((a3 == "X") && (b3 == "X") && (c3 == "X")))
-      {
-       alert('Player 1 venceu');
-       document.getElementById('telaX').value = parseInt(document.getElementById('telaX').value)+1;
-       reset();
+   tela.value += n;
+   number.value += n;
    }
-   
-   if (((a1 == "O") && (a2 == "O") && (a3 == "O")) || 
-    ((b1 == "O") && (b2 == "O") && (b3 == "O")) || 
-    ((c1 == "O") && (c2 == "O") && (c3 == "O")) || 
-    ((a1 == "O") && (b2 == "O") && (c3 == "O")) || 
-    ((a3 == "O") && (b2 == "O") && (c1 == "O")) || 
-    ((a1 == "O") && (b1 == "O") && (c1 == "O")) || 
-    ((a2 == "O") && (b2 == "O") && (c2 == "O")) ||
-    ((a3 == "O") && (b3 == "O") && (c3 == "O")))
-    {
-       alert('Player 2 venceu');
-       document.getElementById('telaO').value = parseInt(document.getElementById('telaO').value)+1;
-      reset();
-   }
-  else
-   if (((a1 == "O")||(a1 == "X"))&&
-   ((a2 == "O")||(a2 == "X"))&&
-   ((a3 == "O")||(a3 == "X"))&&
-   ((b1 == "O")||(b1== "X"))&&
-   ((b2 == "O")||(b2 == "X"))&&
-   ((b3 == "O")||(b3 == "X"))&&
-   ((c1 == "O")||(c1 == "X"))&&
-   ((c2 == "O")||(c2 == "X"))&&
-   ((c3 == "O")||(c3 == "X"))) {
-     
-     alert('Deu velha');
  
-  reset();}
-   
-}
-
-function reset() {
-  			document.getElementById('a1').innerHTML="";
-            document.getElementById('a2').innerHTML="";
-            document.getElementById('a3').innerHTML="";
-            document.getElementById('b1').innerHTML="";
-            document.getElementById('b2').innerHTML="";
-            document.getElementById('b3').innerHTML="";
-            document.getElementById('c1').innerHTML="";
-            document.getElementById('c2').innerHTML="";
-            document.getElementById('c3').innerHTML="";
-  }
-
-function resetPlacar() {
-			 document.getElementById('telaO').value = "0"
-             document.getElementById('telaX').value = "0"
-}
-
+ function apagar() {
+ var tela = document.getElementById("tela");
+ var number = document.getElementById("number");
+ tela.value = "";
+ number.value = "0";
+ }
+ 
+ function igual() {
+ var resultado = 0;
+ resultado = document.getElementById("tela").value;
+ document.getElementById("tela").value= "";
+ document.getElementById("tela").value= eval(resultado);
+ 
+ }
+ 
 </script>
-
 </head>
 <body>
-<table class="contorno">
 
-<tr>
-<td align="center" valign="middle" id="a1" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="a2" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="a3" class="letras" onclick="joga(this.id);fim();"></td>
-</tr>
+<div class="container">
+<input type="text" id="tela" value=" " size="25" disabled>
+<br>
+<div class="espaco">
+<label for="1"><button id="1" onclick="botao(1);" class="num" value="1">1</button></label>
+<label for="2"><button id="2" onclick="botao(2);" class="num" value="2">2</button></label>
+<label for="3"><button id="3" onclick="botao(3);" class="num" value="3">3</button></label>
+<label for="mais"><button id="mais" onclick="botao('+');" class="operation" value="+">+</button></label>
+<br>
+<label for="4"><button id="4" onclick="botao(4);" class="num" value="4">4</button></label>
+<label for="5"><button id="5" onclick="botao(5);" class="num" value="5">5</button></label>
+<label for="6"><button id="6" onclick="botao(6);" class="num" value="6">6</button></label>
+<label for="menos"><button id="menos" onclick="botao('-');" class="operation" value="-">-</button></label>
+<br>
+<label for="7"><button id="7" onclick="botao(7);" class="num" value="7">7</button></label>
+<label for="8"><button id="8" onclick="botao(8);" class="num" value="8">8</button></label>
+<label for="9"><button id="9" onclick="botao(9);" class="num" value="9">9</button></label>
+<label for="dividir"><button id="dividir" onclick="botao('/');" class="operation" value="/">/</button></label>
+<br>
+<label for="c"><button id="c" onclick="apagar();" class="operation" value="c">c</button></label>
+<label for="0"><button id="0" onclick="botao(0);" class="num" value="0">0</button></label>
+<label for="igual"><button id="igual" onclick="igual()" value="=">=</button></label>
+<label for="vezes"><button id="vezes" class="operation" onclick="botao('*');"  value="">*</button></label>
+<br>
+</div>
+</div>
 
-<tr>
-<td align="center" valign="middle" id="b1" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="b2" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="b3" class="letras" onclick="joga(this.id);fim();"></td>
-</tr>
-
-<tr>
-<td align="center" valign="middle" id="c1" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="c2" class="letras" onclick="joga(this.id);fim();"></td>
-<td align="center" valign="middle" id="c3" class="letras" onclick="joga(this.id);fim();"></td>
-</tr>
-
-</table>
-
-<input type="text" id="telaX" value=0 size="1" disabled> 
-<label>X</label>
-
-<input type="button" value="Reset Game"  onclick="reset()"> 
-<input type="button" value="Reset Placar"  onclick="resetPlacar()"> 
-<label>O</label>
-<input type="text" id="telaO" value=0 size="1" disabled>
+<label id="number" value="0"><label id="op" value=""></label></label>
 
 </body>
 </html>
